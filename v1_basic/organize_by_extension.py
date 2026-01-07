@@ -10,7 +10,7 @@ import os
 import shutil
 
 # Folder where the files to be organized are located
-target_folder = r"C:\Users\alexa\Downloads\programming\test_folder"
+target_folder = r"C:\path\to\your\folder"
 
 # Dictionary defining categories and corresponding extensions
 file_types = {
@@ -31,9 +31,8 @@ for file_name in os.listdir(target_folder):
 
     name, ext = os.path.splitext(file_name)
     ext = ext[1:].lower()  # Remove the dot and convert to lowercase
-
-    print(name) # Debug: print file name
-    print(ext)  # Debug: print file extension
+    if not ext:
+        continue # Ignore files without extension
 
     # Loop through categories to find the right one
     for category, extensions in file_types.items():
